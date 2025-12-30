@@ -17,6 +17,11 @@
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://example.org/tags/ghidra/</loc>
+    <lastmod>2025-12-30T02:19:15+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://example.org/posts/</loc>
     <lastmod>2025-12-30T02:19:15+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -27,17 +32,12 @@
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/posts/my-first-post/</loc>
+    <loc>http://example.org/posts/pyghidra-install/</loc>
     <lastmod>2025-12-30T02:19:15+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://example.org/tags/</loc>
-    <lastmod>2025-12-30T02:19:15+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://example.org/tags/%E5%8F%8D%E6%B1%87%E7%BC%96/</loc>
     <lastmod>2025-12-30T02:19:15+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>

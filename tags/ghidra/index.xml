@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on cvolcanob&#39; blog</title>
-    <link>http://example.org/posts/</link>
-    <description>Recent content in Posts on cvolcanob&#39; blog</description>
+    <title>Ghidra on cvolcanob&#39; blog</title>
+    <link>http://example.org/tags/ghidra/</link>
+    <description>Recent content in Ghidra on cvolcanob&#39; blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2025 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Tue, 30 Dec 2025 02:19:15 +0000</lastBuildDate>
-    <atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://example.org/tags/ghidra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python 调用 Ghidra 实现反汇编</title>
       <link>http://example.org/posts/pyghidra-install/</link>
