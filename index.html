@@ -183,6 +183,69 @@
     <div class="post-list-container post-list-container-no-background">
         
         
+            <a href="/posts/libtorch-compile-install/" class="a-block">
+                <div class="post-item-wrapper">
+                    <div class="post-item post-item-no-divider">
+                        <div class="post-item-info-wrapper">
+                            <div class="post-item-title">
+                                Libtorch Compile Install in ARM
+                            </div>
+                            <div class="post-item-summary">
+                                
+                                    <p>尝试在 ARM 架构上编译安装了 LibTorch，由于 git 拉取源码仓库时存在第三方库拉取失败的问题，我在早期的一些版本编译会失败，因此使用pytorch-2.5.1源码包，对应要求<code>Python&gt;=3.9</code></p>
+<h2 id="基本环境安装">基本环境安装</h2>
+<p>需要的环境依赖可以在仓库中看到
+<img src="/imgs/pytorch-require.png" alt="libtorch安装需要环境依赖"></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apt install git build-essential cmake -y <span style="color:#228b22">#需要的库</span>
+</span></span><span style="display:flex;"><span>git clone -b v2.5.1 --recurse-submodule https://github.com/pytorch/pytorch.git
+</span></span><span style="display:flex;"><span>mkdir pytorch-build &amp;&amp; <span style="color:#658b00">cd</span> pytorch-build
+</span></span><span style="display:flex;"><span>apt install python3
+</span></span><span style="display:flex;"><span>apt install python3-yaml python3-typing-extensions <span style="color:#228b22"># 安装依赖包</span>
+</span></span></code></pre></div><h2 id="python依赖安装">Python依赖安装</h2>
+<p>总共需要5个包，setuptools，pip，PyYAML，typing_extensions，wheel
+<strong>依赖安装顺序</strong>：setuptools &raquo; pip &raquo; others
+由于只编译C++不编译Python，因此numpy等其余依赖包无需安装，但需要保证github拉取的源码文件中third_party内各第三方库完整。</p>
+<h2 id="libtorch编译安装">LibTorch编译安装</h2>
+<p>这一步最好需要对相应处理器具有的指令集有足够的了解，避免出现编译安装了结果运行时不能用的尴尬情况。具体我用的命令是</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake -DCMAKE_BUILD_TYPE=Release <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DBUILD_PYTHON=OFF <span style="color:#cd5555">\ </span><span style="color:#228b22"># 关闭Python依赖</span>
+</span></span><span style="display:flex;"><span>	-DCMAKE_INSTALL_PREFIX=/path/to/your/libtorch <span style="color:#cd5555">\ </span><span style="color:#228b22"># 这里需要填写你的安装路径</span>
+</span></span><span style="display:flex;"><span>	-DPYTHON_EXECUTABLE=/opt/python-3.10/bin/python3.10 <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DPYTHON_INCLUDE_DIR=/opt/python-3.10/include/python3.10 <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DPYTHON_LIBRARY=/opt/python-3.10/lib/libpython3.10.so <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DBUILD_SHARED_LIBS=ON <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_CUDA=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_CUDNN=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DDEBUG_CUDA=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_MKLDNN=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_AVX=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_FBGEMM=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_NUMA=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_NNPACK=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DUSE_DISTRIBUTED=OFF <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	-DCFLAGS=<span style="color:#cd5555">&#34;-march=armv8-a&#34;</span> <span style="color:#cd5555">\
+</span></span></span><span style="display:flex;"><span>	../install_packets/pytorch
+</span></span><span style="display:flex;"><span>cmake --build . --target install -j4
+</span></span></code></pre></div><h2 id="测试程序">测试程序</h2>
+<p>然后是一个测试程序，在测试目录下创建一个main.cpp文件。</p>
+                                
+                            </div>
+                            <div class="post-item-meta">
+    2025-12-30
+    &emsp;
+    
+    
+    
+    &emsp;
+    
+</div>
+
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+        
             <a href="/posts/pyghidra-install/" class="a-block">
                 <div class="post-item-wrapper">
                     <div class="post-item post-item-no-divider">
@@ -200,7 +263,7 @@
 </span></span><span style="display:flex;"><span>sudo apt install -y openjdk-21-jdk openjdk-21-jre
 </span></span></code></pre></div><p>然后把你下载的 Ghidra 压缩包解压到希望的地方</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#228b22"># 解压</span>
-</span></span><span style="display:flex;"><span>unzip ghidra_12.0.0_PUBLIC_20241105.zip
+</span></span><span style="display:flex;"><span>unzip ghidra_12.0_PUBLIC_20251205.zip
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 重命名为简单的目录名（可选）</span>
 </span></span><span style="display:flex;"><span>mv ghidra_12.0.0_PUBLIC ghidra
