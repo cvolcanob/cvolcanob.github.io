@@ -104,7 +104,8 @@ target_compile_options(${PROJECT_NAME} PRIVATE &amp;#34;-Wall&amp;#34; &amp;#34;
         <pubDate>Tue, 30 Dec 2025 02:19:15 +0000</pubDate>
         
         <guid>http://example.org/posts/pyghidra-install/</guid>
-        <description>cvolcanob&#39; blog http://example.org/posts/pyghidra-install/ -&lt;p&gt;在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。它的核心能力覆盖二进制程序全生命周期分析：支持 x86、ARM、MIPS 等几乎所有主流处理器架构的反汇编、反编译（可直接将机器码还原为类 C 伪代码）、程序流程分析、数据结构识别、漏洞定位等核心功能，同时提供可视化的交互界面，兼顾手动逆向分析与脚本化批量处理需求。其唯一的「小短板」在于：原生交互以 GUI 操作为主，高阶批量分析、定制化反汇编逻辑需要依托脚本能力。因此官方先后提供了&lt;code&gt;pyhidra&lt;/code&gt;和&lt;code&gt;pyghidra&lt;/code&gt;两个包支持。目前&lt;code&gt;pyhidra&lt;/code&gt;已经停止更新，下载时可以有效考虑使用&lt;code&gt;pyghidra&lt;/code&gt;。&lt;/p&gt;
+        <description>cvolcanob&#39; blog http://example.org/posts/pyghidra-install/ -&lt;p&gt;在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。&lt;/p&gt;
+&lt;p&gt;它的核心能力覆盖二进制程序全生命周期分析：支持 x86、ARM、MIPS 等几乎所有主流处理器架构的反汇编、反编译（可直接将机器码还原为类 C 伪代码）、程序流程分析、数据结构识别、漏洞定位等核心功能，同时提供可视化的交互界面，兼顾手动逆向分析与脚本化批量处理需求。其唯一的「小短板」在于：原生交互以 GUI 操作为主，高阶批量分析、定制化反汇编逻辑需要依托脚本能力。因此官方先后提供了&lt;code&gt;pyhidra&lt;/code&gt;和&lt;code&gt;pyghidra&lt;/code&gt;两个包支持。目前&lt;code&gt;pyhidra&lt;/code&gt;已经停止更新，下载时可以有效考虑使用&lt;code&gt;pyghidra&lt;/code&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;安装-ghidra-和使用其-python-api&#34;&gt;安装 Ghidra 和使用其 Python API&lt;/h2&gt;
 &lt;h3 id=&#34;安装-ghidra&#34;&gt;安装 Ghidra&lt;/h3&gt;
 &lt;p&gt;Ghidra的安装非常容易，首先需要到&lt;a href=&#34;https://github.com/NationalSecurityAgency/ghidra&#34;&gt;ghidra&lt;/a&gt;仓库下载，这里我在ubuntu22.04环境下，下载 12.0 版本工具，对应要下载 Java21，根据自己的需要可以下载对应的 Java 即可&lt;/p&gt;

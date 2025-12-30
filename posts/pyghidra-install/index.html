@@ -19,12 +19,7 @@
 <meta property="og:url" content="http://example.org/posts/pyghidra-install/">
   <meta property="og:site_name" content="cvolcanob&#39; blog">
   <meta property="og:title" content="Python 调用 Ghidra 实现反汇编">
-  <meta property="og:description" content="在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。它的核心能力覆盖二进制程序全生命周期分析：支持 x86、ARM、MIPS 等几乎所有主流处理器架构的反汇编、反编译（可直接将机器码还原为类 C 伪代码）、程序流程分析、数据结构识别、漏洞定位等核心功能，同时提供可视化的交互界面，兼顾手动逆向分析与脚本化批量处理需求。其唯一的「小短板」在于：原生交互以 GUI 操作为主，高阶批量分析、定制化反汇编逻辑需要依托脚本能力。因此官方先后提供了pyhidra和pyghidra两个包支持。目前pyhidra已经停止更新，下载时可以有效考虑使用pyghidra。
-安装 Ghidra 和使用其 Python API 安装 Ghidra Ghidra的安装非常容易，首先需要到ghidra仓库下载，这里我在ubuntu22.04环境下，下载 12.0 版本工具，对应要下载 Java21，根据自己的需要可以下载对应的 Java 即可
-sudo apt update sudo apt install -y openjdk-21-jdk openjdk-21-jre 然后把你下载的 Ghidra 压缩包解压到希望的地方
-# 解压 unzip ghidra_12.0_PUBLIC_20251205.zip # 重命名为简单的目录名（可选） mv ghidra_12.0.0_PUBLIC ghidra 设置环境变量
-# 添加Ghidra到PATH echo &#39;export GHIDRA_INSTALL_DIR=~/tools/ghidra&#39; &gt;&gt; ~/.bashrc echo &#39;export PATH=$GHIDRA_INSTALL_DIR:$PATH&#39; &gt;&gt; ~/.bashrc source ~/.bashrc 测试 Ghidra GUI 启动（可选）
-cd ~/tools/ghidra ./ghidraRun # 或者如果设置了环境变量 ghidraRun 安装 PyGhidra 然后是PyGhidra，有两种安装方法，第一种是直接使用在线下载安装">
+  <meta property="og:description" content="在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -40,12 +35,7 @@ cd ~/tools/ghidra ./ghidraRun # 或者如果设置了环境变量 ghidraRun 安�
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Python 调用 Ghidra 实现反汇编">
-  <meta name="twitter:description" content="在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。它的核心能力覆盖二进制程序全生命周期分析：支持 x86、ARM、MIPS 等几乎所有主流处理器架构的反汇编、反编译（可直接将机器码还原为类 C 伪代码）、程序流程分析、数据结构识别、漏洞定位等核心功能，同时提供可视化的交互界面，兼顾手动逆向分析与脚本化批量处理需求。其唯一的「小短板」在于：原生交互以 GUI 操作为主，高阶批量分析、定制化反汇编逻辑需要依托脚本能力。因此官方先后提供了pyhidra和pyghidra两个包支持。目前pyhidra已经停止更新，下载时可以有效考虑使用pyghidra。
-安装 Ghidra 和使用其 Python API 安装 Ghidra Ghidra的安装非常容易，首先需要到ghidra仓库下载，这里我在ubuntu22.04环境下，下载 12.0 版本工具，对应要下载 Java21，根据自己的需要可以下载对应的 Java 即可
-sudo apt update sudo apt install -y openjdk-21-jdk openjdk-21-jre 然后把你下载的 Ghidra 压缩包解压到希望的地方
-# 解压 unzip ghidra_12.0_PUBLIC_20251205.zip # 重命名为简单的目录名（可选） mv ghidra_12.0.0_PUBLIC ghidra 设置环境变量
-# 添加Ghidra到PATH echo &#39;export GHIDRA_INSTALL_DIR=~/tools/ghidra&#39; &gt;&gt; ~/.bashrc echo &#39;export PATH=$GHIDRA_INSTALL_DIR:$PATH&#39; &gt;&gt; ~/.bashrc source ~/.bashrc 测试 Ghidra GUI 启动（可选）
-cd ~/tools/ghidra ./ghidraRun # 或者如果设置了环境变量 ghidraRun 安装 PyGhidra 然后是PyGhidra，有两种安装方法，第一种是直接使用在线下载安装">
+  <meta name="twitter:description" content="在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。">
 
 
 
@@ -514,7 +504,8 @@ cd ~/tools/ghidra ./ghidraRun # 或者如果设置了环境变量 ghidraRun 安�
                 
                 <div class="post-body" v-pre>
                 
-                    <p>在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。它的核心能力覆盖二进制程序全生命周期分析：支持 x86、ARM、MIPS 等几乎所有主流处理器架构的反汇编、反编译（可直接将机器码还原为类 C 伪代码）、程序流程分析、数据结构识别、漏洞定位等核心功能，同时提供可视化的交互界面，兼顾手动逆向分析与脚本化批量处理需求。其唯一的「小短板」在于：原生交互以 GUI 操作为主，高阶批量分析、定制化反汇编逻辑需要依托脚本能力。因此官方先后提供了<code>pyhidra</code>和<code>pyghidra</code>两个包支持。目前<code>pyhidra</code>已经停止更新，下载时可以有效考虑使用<code>pyghidra</code>。</p>
+                    <p>在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。</p>
+<p>它的核心能力覆盖二进制程序全生命周期分析：支持 x86、ARM、MIPS 等几乎所有主流处理器架构的反汇编、反编译（可直接将机器码还原为类 C 伪代码）、程序流程分析、数据结构识别、漏洞定位等核心功能，同时提供可视化的交互界面，兼顾手动逆向分析与脚本化批量处理需求。其唯一的「小短板」在于：原生交互以 GUI 操作为主，高阶批量分析、定制化反汇编逻辑需要依托脚本能力。因此官方先后提供了<code>pyhidra</code>和<code>pyghidra</code>两个包支持。目前<code>pyhidra</code>已经停止更新，下载时可以有效考虑使用<code>pyghidra</code>。</p>
 <h2 id="安装-ghidra-和使用其-python-api">安装 Ghidra 和使用其 Python API</h2>
 <h3 id="安装-ghidra">安装 Ghidra</h3>
 <p>Ghidra的安装非常容易，首先需要到<a href="https://github.com/NationalSecurityAgency/ghidra">ghidra</a>仓库下载，这里我在ubuntu22.04环境下，下载 12.0 版本工具，对应要下载 Java21，根据自己的需要可以下载对应的 Java 即可</p>
