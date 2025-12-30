@@ -22,7 +22,7 @@
         <description>cvolcanob&#39; blog http://example.org/posts/libtorch-compile-install/ -&lt;p&gt;尝试在 ARM 架构上编译安装了 LibTorch，由于 git 拉取源码仓库时存在第三方库拉取失败的问题，我在早期的一些版本编译会失败，因此使用pytorch-2.5.1源码包，对应要求&lt;code&gt;Python&amp;gt;=3.9&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;基本环境安装&#34;&gt;基本环境安装&lt;/h2&gt;
 &lt;p&gt;需要的环境依赖可以在仓库中看到
-&lt;img src=&#34;http://example.org/imgs/pytorch-require.png&#34; alt=&#34;libtorch安装需要环境依赖&#34;&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt install git build-essential cmake -y &lt;span style=&#34;color:#228b22&#34;&gt;#需要的库&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone -b v2.5.1 --recurse-submodule https://github.com/pytorch/pytorch.git
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir pytorch-build &amp;amp;&amp;amp; &lt;span style=&#34;color:#658b00&#34;&gt;cd&lt;/span&gt; pytorch-build
