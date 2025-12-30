@@ -2,62 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/tags/c&#43;&#43;/</loc>
+    <loc>/tags/c&#43;&#43;/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/categories/libtorch/</loc>
+    <loc>/categories/libtorch/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/tags/libtorch/</loc>
+    <loc>/tags/libtorch/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/posts/libtorch-compile-install/</loc>
+    <loc>/posts/libtorch-compile-install/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2025-12-30T07:41:57+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/categories/ghidra/</loc>
+    <loc>/categories/ghidra/</loc>
     <lastmod>2025-12-30T02:19:15+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/tags/ghidra/</loc>
+    <loc>/tags/ghidra/</loc>
     <lastmod>2025-12-30T02:19:15+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/tags/python/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2025-12-30T02:19:15+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://example.org/posts/pyghidra-install/</loc>
+    <loc>/posts/pyghidra-install/</loc>
     <lastmod>2025-12-30T02:19:15+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>

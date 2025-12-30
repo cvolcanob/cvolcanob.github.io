@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LibTorch on cvolcanob&#39; blog</title>
-    <link>http://example.org/tags/libtorch/</link>
+    <link>/tags/libtorch/</link>
     <description>Recent content in LibTorch on cvolcanob&#39; blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2025 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Tue, 30 Dec 2025 07:41:57 +0000</lastBuildDate>
-    <atom:link href="http://example.org/tags/libtorch/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/libtorch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Libtorch Compile Install in ARM</title>
-      <link>http://example.org/posts/libtorch-compile-install/</link>
+      <link>/posts/libtorch-compile-install/</link>
       <pubDate>Tue, 30 Dec 2025 07:41:57 +0000</pubDate>
-      <guid>http://example.org/posts/libtorch-compile-install/</guid>
+      <guid>/posts/libtorch-compile-install/</guid>
       <description>&lt;p&gt;尝试在 ARM 架构上编译安装了 LibTorch，由于 git 拉取源码仓库时存在第三方库拉取失败的问题，我在早期的一些版本编译会失败，因此使用pytorch-2.5.1源码包，对应要求&lt;code&gt;Python&amp;gt;=3.9&lt;/code&gt;&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on cvolcanob&#39; blog</title>
-    <link>http://example.org/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on cvolcanob&#39; blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2025 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Tue, 30 Dec 2025 07:41:57 +0000</lastBuildDate>
-    <atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;</title>
-      <link>http://example.org/tags/c&#43;&#43;/</link>
+      <link>/tags/c&#43;&#43;/</link>
       <pubDate>Tue, 30 Dec 2025 07:41:57 +0000</pubDate>
-      <guid>http://example.org/tags/c&#43;&#43;/</guid>
+      <guid>/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     <item>
       <title>LibTorch</title>
-      <link>http://example.org/tags/libtorch/</link>
+      <link>/tags/libtorch/</link>
       <pubDate>Tue, 30 Dec 2025 07:41:57 +0000</pubDate>
-      <guid>http://example.org/tags/libtorch/</guid>
+      <guid>/tags/libtorch/</guid>
       <description></description>
     </item>
     <item>
       <title>Ghidra</title>
-      <link>http://example.org/tags/ghidra/</link>
+      <link>/tags/ghidra/</link>
       <pubDate>Tue, 30 Dec 2025 02:19:15 +0000</pubDate>
-      <guid>http://example.org/tags/ghidra/</guid>
+      <guid>/tags/ghidra/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://example.org/tags/python/</link>
+      <link>/tags/python/</link>
       <pubDate>Tue, 30 Dec 2025 02:19:15 +0000</pubDate>
-      <guid>http://example.org/tags/python/</guid>
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
   </channel>

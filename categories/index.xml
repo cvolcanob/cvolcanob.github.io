@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on cvolcanob&#39; blog</title>
-    <link>http://example.org/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on cvolcanob&#39; blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2025 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Tue, 30 Dec 2025 07:41:57 +0000</lastBuildDate>
-    <atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LibTorch</title>
-      <link>http://example.org/categories/libtorch/</link>
+      <link>/categories/libtorch/</link>
       <pubDate>Tue, 30 Dec 2025 07:41:57 +0000</pubDate>
-      <guid>http://example.org/categories/libtorch/</guid>
+      <guid>/categories/libtorch/</guid>
       <description></description>
     </item>
     <item>
       <title>Ghidra</title>
-      <link>http://example.org/categories/ghidra/</link>
+      <link>/categories/ghidra/</link>
       <pubDate>Tue, 30 Dec 2025 02:19:15 +0000</pubDate>
-      <guid>http://example.org/categories/ghidra/</guid>
+      <guid>/categories/ghidra/</guid>
       <description></description>
     </item>
   </channel>

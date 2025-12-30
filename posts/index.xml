@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on cvolcanob&#39; blog</title>
-    <link>http://example.org/posts/</link>
+    <link>/posts/</link>
     <description>Recent content in Posts on cvolcanob&#39; blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2025 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Tue, 30 Dec 2025 07:41:57 +0000</lastBuildDate>
-    <atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Libtorch Compile Install in ARM</title>
-      <link>http://example.org/posts/libtorch-compile-install/</link>
+      <link>/posts/libtorch-compile-install/</link>
       <pubDate>Tue, 30 Dec 2025 07:41:57 +0000</pubDate>
-      <guid>http://example.org/posts/libtorch-compile-install/</guid>
+      <guid>/posts/libtorch-compile-install/</guid>
       <description>&lt;p&gt;尝试在 ARM 架构上编译安装了 LibTorch，由于 git 拉取源码仓库时存在第三方库拉取失败的问题，我在早期的一些版本编译会失败，因此使用pytorch-2.5.1源码包，对应要求&lt;code&gt;Python&amp;gt;=3.9&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python 调用 Ghidra 实现反汇编</title>
-      <link>http://example.org/posts/pyghidra-install/</link>
+      <link>/posts/pyghidra-install/</link>
       <pubDate>Tue, 30 Dec 2025 02:19:15 +0000</pubDate>
-      <guid>http://example.org/posts/pyghidra-install/</guid>
+      <guid>/posts/pyghidra-install/</guid>
       <description>&lt;p&gt;在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。&lt;/p&gt;</description>
     </item>
   </channel>

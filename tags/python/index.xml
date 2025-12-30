@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on cvolcanob&#39; blog</title>
-    <link>http://example.org/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in Python on cvolcanob&#39; blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2025 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Tue, 30 Dec 2025 02:19:15 +0000</lastBuildDate>
-    <atom:link href="http://example.org/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python 调用 Ghidra 实现反汇编</title>
-      <link>http://example.org/posts/pyghidra-install/</link>
+      <link>/posts/pyghidra-install/</link>
       <pubDate>Tue, 30 Dec 2025 02:19:15 +0000</pubDate>
-      <guid>http://example.org/posts/pyghidra-install/</guid>
+      <guid>/posts/pyghidra-install/</guid>
       <description>&lt;p&gt;在逆向工程、二进制安全分析与漏洞挖掘领域，反汇编是拆解二进制程序、还原其底层执行逻辑的核心技术手段。Ghidra是由 美国国家安全局（NSA） 开源的跨平台、全功能逆向工程套件，也是当前逆向分析、二进制反汇编领域最主流、最强大的工具之一，完全免费且开源可定制。&lt;/p&gt;</description>
     </item>
   </channel>
