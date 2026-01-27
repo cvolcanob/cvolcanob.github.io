@@ -6,7 +6,7 @@
     <description>Recent content on cvolcanob&#39; blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>Copyright © 2025-2025 cvolcanob&#39;s Blog.</copyright>
+    <copyright>Copyright © 2025-2026 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Tue, 30 Dec 2025 07:41:57 +0000</lastBuildDate>
     
         <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -93,7 +93,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE &amp;#34;-Wall&amp;#34; &amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cmake .. 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./test
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/libtorch-compile-install/ - Copyright © 2025-2025 cvolcanob&#39;s Blog.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/libtorch-compile-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
         </item>
     
     
@@ -487,7 +487,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE &amp;#34;-Wall&amp;#34; &amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sys.exit(&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    test_ghidra_disassembly(binary_path, ghidra_path)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/pyghidra-install/ - Copyright © 2025-2025 cvolcanob&#39;s Blog.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/pyghidra-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
         </item>
     
     

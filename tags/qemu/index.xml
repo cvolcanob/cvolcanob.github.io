@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qemu on cvolcanob&#39; blog</title>
+    <link>//localhost:1313/tags/qemu/</link>
+    <description>Recent content in Qemu on cvolcanob&#39; blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2025-2026 cvolcanob&#39;s Blog.</copyright>
+    <lastBuildDate>Tue, 27 Jan 2026 16:56:54 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/qemu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qemu Gem5 Install</title>
+      <link>//localhost:1313/posts/qemu-gem5-install/</link>
+      <pubDate>Tue, 27 Jan 2026 16:56:54 +0000</pubDate>
+      <guid>//localhost:1313/posts/qemu-gem5-install/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

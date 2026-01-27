@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<title>Qemu Gem5 Install</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="G-XXXXXXXXXX">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="//localhost:1313/posts/qemu-gem5-install/">
+  <meta property="og:site_name" content="cvolcanob&#39; blog">
+  <meta property="og:title" content="Qemu Gem5 Install">
+  <meta property="og:description" content="A blog by a graduate student in computer science and technology">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-27T16:56:54+00:00">
+    <meta property="article:modified_time" content="2026-01-27T16:56:54+00:00">
+    <meta property="article:tag" content="Emulation">
+    <meta property="article:tag" content="Gem5">
+    <meta property="article:tag" content="Qemu">
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Qemu Gem5 Install">
+  <meta name="twitter:description" content="A blog by a graduate student in computer science and technology">
+
+
+
+
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXXXXX');
+        }
+      </script>
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
+</script>
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    博文
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    专栏
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#qemu%e5%ae%89%e8%a3%85" class="nav-qemu安装">
+									Qemu安装
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%8e%af%e5%a2%83%e4%be%9d%e8%b5%96" class="nav-环境依赖">
+									环境依赖
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3" class="nav-问题解决">
+									问题解决
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#gem5-%e5%ae%89%e8%a3%85" class="nav-gem5-安装">
+									gem5 安装
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%87%86%e5%a4%87" class="nav-准备">
+									准备
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%bc%96%e8%af%91" class="nav-编译">
+									编译
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#gem5%e6%b5%8b%e8%af%95" class="nav-gem5测试">
+									gem5测试
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="//localhost:1313/">
+            cvolcanob&#39; blog
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="//localhost:1313/">
+        <div class="single-column-header-title">cvolcanob&#39; blog</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Qemu Gem5 Install
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2026-01-27 16:56
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/emulation">Emulation</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/emulation">emulation</a>
+                                &nbsp;
+                            
+                                <a href="/tags/gem5">gem5</a>
+                                &nbsp;
+                            
+                                <a href="/tags/qemu">qemu</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="qemu安装">Qemu安装</h1>
+<p>这里我们使用的是8.2.10版本，对应的API是v1，选择插件版本需要留意</p>
+<h2 id="环境依赖">环境依赖</h2>
+<p>首先需要安装必须的包</p>
+<pre tabindex="0"><code>sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build
+</code></pre><p>包名是Debian的（括号内是Red Hat/Fedora）。
+git-email，用于发送补丁
+libsdl2-dev（libsdl2-devel），用于基于SDL的图形用户界面
+libgtk-3-dev（gtk3-devel），用于一个简单的界面，代替VNC
+libvte-dev（VTE291-DEVEL），通过GTK接口访问QEMU显示器和串口/控制台设备
+libcapstone-dev（capstone-devel），用于拆解 CPU 指令
+上述列表远非完整。为了最大化代码覆盖，应尽可能启用 QEMU 功能。 运行配置时，你应该会看到很多“是”的行，只有少数几行是“否”。</p>
+<p>对于Ubuntu（以及可能的其他基于Debian的发行版）， 大多数推荐的额外软件包以实现最大代码覆盖，可以安装如下：</p>
+<pre tabindex="0"><code>sudo apt-get install git-email
+sudo apt-get install libaio-dev libbluetooth-dev libcapstone-dev libbrlapi-dev libbz2-dev
+sudo apt-get install libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev
+sudo apt-get install libibverbs-dev libjpeg8-dev libncurses5-dev libnuma-dev
+sudo apt-get install librbd-dev librdmacm-dev
+sudo apt-get install libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev
+sudo apt-get install libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev
+sudo apt-get install valgrind xfslibs-dev 
+</code></pre><p>然后执行</p>
+<pre tabindex="0"><code>make build &amp;&amp; cd build
+../configure --prefix=/usr/local/qemu --enable-slirp
+make
+sudo make install
+sudo ln -s /usr/local/qemu/bin/* /usr/local/bin/
+</code></pre><h2 id="问题解决">问题解决</h2>
+<p>遭遇问题：</p>
+<pre tabindex="0"><code>Executing subproject keycodemapdb 
+
+keycodemapdb| Project name: keycodemapdb
+keycodemapdb| Project version: undefined
+keycodemapdb| Program tools/keymap-gen found: YES (/home/volcanobin/Downloads/qemu-stable-8.2/subprojects/keycodemapdb/tools/keymap-gen)
+keycodemapdb| Build targets in project: 275
+keycodemapdb| Subproject keycodemapdb finished.
+
+Program scripts/decodetree.py found: YES (/home/volcanobin/Downloads/qemu-stable-8.2/build/pyvenv/bin/python3 /home/volcanobin/Downloads/qemu-stable-8.2/scripts/decodetree.py)
+Program flex found: NO
+
+../target/hexagon/meson.build:180:8: ERROR: Program &#39;flex&#39; not found or not executable
+
+A full log can be found at /home/volcanobin/Downloads/qemu-stable-8.2/build/meson-logs/meson-log.txt
+
+ERROR: meson setup failed
+</code></pre><p>解决：</p>
+<pre tabindex="0"><code>sudo apt install -y flex bison
+</code></pre><h1 id="gem5-安装">gem5 安装</h1>
+<h2 id="准备">准备</h2>
+<p>环境依赖安装</p>
+<pre tabindex="0"><code>sudo apt install build-essential git m4 scons zlib1g zlib1g-dev \
+    libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev \
+    python3-dev python-is-python3 libboost-all-dev pkg-config gcc-10 g++-10 \
+    python3-tk clang-format-18
+</code></pre><p>从github上下载gem5</p>
+<pre tabindex="0"><code>git clone https://github.com/gem5/gem5.git
+</code></pre><p>在v23+版本开始，就放弃了se.py个fs.py，改为了使用配置文件的方法，如果希望使用旧版方法请下载22.1以前的版本。我这里使用v22.1.0.0</p>
+<h2 id="编译">编译</h2>
+<p>执行</p>
+<pre tabindex="0"><code>scons build/{ISA}/gem5.{variant} -j {cpus}
+</code></pre><p>有效的ISA有：</p>
+<p>ALL - 包含了gem5起的所有指令集和Ruby协议</p>
+<ul>
+<li>ARM</li>
+<li>NULL</li>
+<li>MIPS</li>
+<li>POWER</li>
+<li>RISCV</li>
+<li>SPARC</li>
+<li>X86</li>
+</ul>
+<p>有效的构建变体有</p>
+<ul>
+<li>debug 关闭了优化。这确保变量不会 优化后，功能不会意外地内联化，控制流程也会 不要以令人惊讶的方式行事。这让这个版本更容易作 类似GDB的工具，但没有优化，这个版本明显慢很多 比其他人更重要。使用像 gdb 和 valgrind 这样的工具时，应该选择它 而且不希望细节被掩盖，但除此之外，优化更好的版本是 推荐。</li>
+<li>opt 开启了优化功能和调试功能，比如断言 以及留下的 DPRINTF。这在速度之间取得了良好的平衡 模拟和洞察，以防出现问题。就是这样 大多数情况下版本是最好的。</li>
+<li>fast 已开启优化功能并编译调试功能 出去。这在性能上发挥了所有作用，但代价是 运行时错误检查以及启用调试输出的能力。就是这样 如果你非常确定一切正常，推荐使用这个版本 并且想从模拟器中获得最佳性能。</li>
+</ul>
+<p>编译后的help：</p>
+<pre tabindex="0"><code>Usage
+=====
+  gem5.opt [gem5 options] script.py [script options]
+
+gem5 is copyrighted software; use the --copyright option for details.
+
+Options
+=======
+--help, -h              show this help message and exit
+--build-info, -B        Show build information
+--copyright, -C         Show full copyright information
+--readme, -R            Show the readme
+--outdir=DIR, -d DIR    Set the output directory to DIR [Default: m5out]
+--redirect-stdout, -r   Redirect stdout (&amp; stderr, without -e) to file
+--redirect-stderr, -e   Redirect stderr to file
+--silent-redirect       Suppress printing a message when redirecting stdout or
+                        stderr
+--stdout-file=FILE      Filename for -r redirection [Default: simout.txt]
+--stderr-file=FILE      Filename for -e redirection [Default: simerr.txt]
+--listener-mode={on,off,auto}
+                        Port (e.g., gdb) listener mode (auto: Enable if
+                        running interactively) [Default: auto]
+--allow-remote-connections
+                        Port listeners will accept connections from anywhere
+                        (0.0.0.0). Default is only localhost.
+--interactive, -i       Invoke the interactive interpreter after running the
+                        script
+--pdb                   Invoke the python debugger before running the script
+--path=PATH[:PATH], -p PATH[:PATH]
+                        Prepend PATH to the system path when invoking the
+                        script
+--quiet, -q             Reduce verbosity
+--verbose, -v           Increase verbosity
+-m mod                  run library module as a script (terminates option
+                        list)
+-c cmd                  program passed in as string (terminates option list)
+-P                      Don&#39;t prepend the script directory to the system path.
+                        Mimics Python 3&#39;s `-P` option.
+-s                      IGNORED, only for compatibility with python. don&#39;tadd
+                        user site directory to sys.path; also PYTHONNOUSERSITE
+
+Statistics Options
+------------------
+--stats-file=FILE       Sets the output file for statistics [Default:
+                        stats.txt]
+--stats-help            Display documentation for available stat visitors
+
+Configuration Options
+---------------------
+--dump-config=FILE      Dump configuration output file [Default: config.ini]
+--json-config=FILE      Create JSON output of the configuration [Default:
+                        config.json]
+--dot-config=FILE       Create DOT &amp; pdf outputs of the configuration
+                        [Default: config.dot]
+--dot-dvfs-config=FILE  Create DOT &amp; pdf outputs of the DVFS configuration
+                        [Default: none]
+
+Debugging Options
+-----------------
+--debug-break=TICK[,TICK]
+                        Create breakpoint(s) at TICK(s) (kills process if no
+                        debugger attached)
+--debug-help            Print help on debug flags
+--debug-flags=FLAG[,FLAG]
+                        Sets the flags for debug output (-FLAG disables a
+                        flag)
+--debug-start=TICK      Start debug output at TICK
+--debug-end=TICK        End debug output at TICK
+--debug-file=FILE       Sets the output file for debug. Append &#39;.gz&#39; to the
+                        name for it to be compressed automatically [Default:
+                        cout]
+--debug-activate=EXPR[,EXPR]
+                        Activate EXPR sim objects
+--debug-ignore=EXPR     Ignore EXPR sim objects
+--remote-gdb-port=REMOTE_GDB_PORT
+                        Remote gdb base port (set to 0 to disable listening)
+
+Help Options
+------------
+--list-sim-objects      List all built-in SimObjects, their params and default
+                        values
+</code></pre><h2 id="gem5测试">gem5测试</h2>
+<p>可以使用下面命令行测试：</p>
+<pre tabindex="0"><code>./build/ARM/gem5.opt configs/example/se.py -c tests/test-progs/hello/bin/arm/linux/hello
+</code></pre><p>这个时候其实还会报警告提示你有pydot等没安装，生成不了一些相关文件，可以使用下面命令补上</p>
+<pre tabindex="0"><code>sudo apt install -y graphviz
+pip3 install pydot
+</code></pre>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2026-01-27</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			下回<br>已经到头啦。
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/libtorch-compile-install/">
+			上回<br>Libtorch Compile Install in ARM
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="//localhost:1313/">
+    
+        <div class="nav-title">
+            cvolcanob&#39; blog
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                博文
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                专栏
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Copyright © 2025-2026 cvolcanob&#39;s Blog.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#qemu%e5%ae%89%e8%a3%85" class="nav-qemu安装">
+									Qemu安装
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%8e%af%e5%a2%83%e4%be%9d%e8%b5%96" class="nav-环境依赖">
+									环境依赖
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3" class="nav-问题解决">
+									问题解决
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#gem5-%e5%ae%89%e8%a3%85" class="nav-gem5-安装">
+									gem5 安装
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%87%86%e5%a4%87" class="nav-准备">
+									准备
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%bc%96%e8%af%91" class="nav-编译">
+									编译
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#gem5%e6%b5%8b%e8%af%95" class="nav-gem5测试">
+									gem5测试
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	Copyright © 2025-2026 cvolcanob&#39;s Blog.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
