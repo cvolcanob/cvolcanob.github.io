@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh"><head>
-<title>Gem5</title>
+<title>Openblas Libtirpc Install</title>
 
 
 
@@ -16,12 +16,18 @@
 
 
 
-<meta property="og:url" content="/tags/gem5/">
+<meta property="og:url" content="/posts/openblas-libtirpc-install/">
   <meta property="og:site_name" content="cvolcanob&#39; blog">
-  <meta property="og:title" content="Gem5">
-  <meta property="og:description" content="A blog by a graduate student in computer science and technology">
+  <meta property="og:title" content="Openblas Libtirpc Install">
+  <meta property="og:description" content="在进行仿真的时候，我们经常需要提前准备好编译完的二进制文件用于仿真运行，因此会存在需要交叉编译的需求，如果准备编译的代码依赖外部库，比如OpenBlas等，就需要提前将这些库进行交叉编译。">
   <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-28T12:15:11+08:00">
+    <meta property="article:modified_time" content="2026-01-28T12:15:11+08:00">
+    <meta property="article:tag" content="Emulation">
+    <meta property="article:tag" content="Openblas">
+    <meta property="article:tag" content="Rpc">
 
 
 
@@ -29,8 +35,8 @@
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Gem5">
-  <meta name="twitter:description" content="A blog by a graduate student in computer science and technology">
+  <meta name="twitter:title" content="Openblas Libtirpc Install">
+  <meta name="twitter:description" content="在进行仿真的时候，我们经常需要提前准备好编译完的二进制文件用于仿真运行，因此会存在需要交叉编译的需求，如果准备编译的代码依赖外部库，比如OpenBlas等，就需要提前将这些库进行交叉编译。">
 
 
 
@@ -73,6 +79,8 @@
 
 
 
+      <script src="/js/toc.js"></script>
+    
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
@@ -111,9 +119,11 @@
                 
                 
                 
+                    
                 
                 
-                <a class="a-block drawer-menu-item false" href="/posts">
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
                     博文
                 </a>
                 
@@ -131,15 +141,67 @@
                 
                 
                 
-                    
                 
                 
-                
-                <a class="a-block drawer-menu-item active" href="/tags">
+                <a class="a-block drawer-menu-item false" href="/tags">
                     标签
                 </a>
                 
             
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#openblas%e4%ba%a4%e5%8f%89%e7%bc%96%e8%af%91" class="nav-openblas交叉编译">
+									OpenBlas交叉编译
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#libtirpc" class="nav-libtirpc">
+									libtirpc
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
             
         </div>
     </div>
@@ -180,35 +242,110 @@
                 <div id="streamContainer" class="stream-container">
 
     <div class="post-list-container post-list-container-shadow">
-        <div class="post-item-wrapper post-item-wrapper-no-hover">
-            <div class="post-item post-item-no-gaps">
-                <div class="post-item-info-wrapper">
-                    <div class="post-item-title  post-item-title-small">
-                        <a href="/tags/">Tags</a> / Gem5
-                    </div>
-                </div>
-            </div>
-        </div><a href="/posts/qemu-gem5-install/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            Qemu和Gem5两项仿真工具的编译安装 
-                        </div>
-                        <div class="post-item-meta">
-    2026-01-28
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
+        <div class="post">
+            
+            
+            
 
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Openblas Libtirpc Install
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2026-01-28 12:15
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/emulation">Emulation</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/emulation">emulation</a>
+                                &nbsp;
+                            
+                                <a href="/tags/openblas">openblas</a>
+                                &nbsp;
+                            
+                                <a href="/tags/rpc">rpc</a>
+                                &nbsp;
+                            
+                        
+                        
                     </div>
                 </div>
             </div>
-        </a></div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <p>在进行仿真的时候，我们经常需要提前准备好编译完的二进制文件用于仿真运行，因此会存在需要交叉编译的需求，如果准备编译的代码依赖外部库，比如OpenBlas等，就需要提前将这些库进行交叉编译。</p>
+<h1 id="openblas交叉编译">OpenBlas交叉编译</h1>
+<p>OpenBlas的交叉编译很简单</p>
+<p>首先下载git源码</p>
+<pre tabindex="0"><code>git clone https://github.com/OpenMathLib/OpenBLAS.git
+</code></pre><p>然后进入OpenBlas文件夹，执行编译：</p>
+<pre tabindex="0"><code>make CC=aarch64-linux-gnu-gcc FC=aarch64-linux-gnu-gfortran HOSTCC=gcc TARGET=ARMV8
+</code></pre><p>这里一点是需要指定HOSTCC，另一点是要指定目标架构
+最后编译安装：</p>
+<pre tabindex="0"><code>make PREFIX=~/aarch64-lib/openblas install
+</code></pre><p>就完成整个流程了</p>
+<h1 id="libtirpc">libtirpc</h1>
+<p>因为我仿真运行lmbench，依赖rpc库，因此这里编译安装了libtirpc
+首先自行下载，然后执行</p>
+<pre tabindex="0"><code>cd /path/to/libtirpc-1.3.3/
+mkdir build &amp;&amp; cd build
+../configure --host=aarch64-linux-gnu CC=aarch64-linux-gnu-gcc --disable-shared --enable-static --disable-gssapi
+make
+</code></pre><p>就完成安装了~</p>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2026-01-28</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			下回<br>已经到头啦。
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/qemu-gem5-install/">
+			上回<br>Qemu和Gem5两项仿真工具的编译安装 
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
 
 
                     </div>
@@ -228,9 +365,11 @@
             
             
             
+                
             
             
-            <a class="a-block nav-link-item false" href="/posts">
+            
+            <a class="a-block nav-link-item active" href="/posts">
                 博文
             </a>
             
@@ -248,11 +387,9 @@
             
             
             
-                
             
             
-            
-            <a class="a-block nav-link-item active" href="/tags">
+            <a class="a-block nav-link-item false" href="/tags">
                 标签
             </a>
             
@@ -280,6 +417,60 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
         
 
         
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#openblas%e4%ba%a4%e5%8f%89%e7%bc%96%e8%af%91" class="nav-openblas交叉编译">
+									OpenBlas交叉编译
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#libtirpc" class="nav-libtirpc">
+									libtirpc
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
     </div>
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
@@ -296,13 +487,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
         </a>
         
         
-        
-        
     </div>
 </div>
-
-
-
 
 <div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>

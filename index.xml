@@ -7,9 +7,215 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2026 cvolcanob&#39;s Blog.</copyright>
-    <lastBuildDate>Tue, 30 Dec 2025 07:41:57 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jan 2026 12:15:11 +0800</lastBuildDate>
     
         <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Openblas Libtirpc Install</title>
+        <link>/posts/openblas-libtirpc-install/</link>
+        <pubDate>Wed, 28 Jan 2026 12:15:11 +0800</pubDate>
+        
+        <guid>/posts/openblas-libtirpc-install/</guid>
+        <description>cvolcanob&#39; blog /posts/openblas-libtirpc-install/ -&lt;p&gt;在进行仿真的时候，我们经常需要提前准备好编译完的二进制文件用于仿真运行，因此会存在需要交叉编译的需求，如果准备编译的代码依赖外部库，比如OpenBlas等，就需要提前将这些库进行交叉编译。&lt;/p&gt;
+&lt;h1 id=&#34;openblas交叉编译&#34;&gt;OpenBlas交叉编译&lt;/h1&gt;
+&lt;p&gt;OpenBlas的交叉编译很简单&lt;/p&gt;
+&lt;p&gt;首先下载git源码&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/OpenMathLib/OpenBLAS.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后进入OpenBlas文件夹，执行编译：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;make CC=aarch64-linux-gnu-gcc FC=aarch64-linux-gnu-gfortran HOSTCC=gcc TARGET=ARMV8
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里一点是需要指定HOSTCC，另一点是要指定目标架构
+最后编译安装：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;make PREFIX=~/aarch64-lib/openblas install
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;就完成整个流程了&lt;/p&gt;
+&lt;h1 id=&#34;libtirpc&#34;&gt;libtirpc&lt;/h1&gt;
+&lt;p&gt;因为我仿真运行lmbench，依赖rpc库，因此这里编译安装了libtirpc
+首先自行下载，然后执行&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd /path/to/libtirpc-1.3.3/
+mkdir build &amp;amp;&amp;amp; cd build
+../configure --host=aarch64-linux-gnu CC=aarch64-linux-gnu-gcc --disable-shared --enable-static --disable-gssapi
+make
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;就完成安装了~&lt;/p&gt;- /posts/openblas-libtirpc-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Qemu和Gem5两项仿真工具的编译安装 </title>
+        <link>/posts/qemu-gem5-install/</link>
+        <pubDate>Wed, 28 Jan 2026 00:59:54 +0800</pubDate>
+        
+        <guid>/posts/qemu-gem5-install/</guid>
+        <description>cvolcanob&#39; blog /posts/qemu-gem5-install/ -&lt;p&gt;本文中我们会介绍如何准备Qemu和Gem5的环境并进行安装。&lt;/p&gt;
+&lt;h1 id=&#34;qemu安装&#34;&gt;Qemu安装&lt;/h1&gt;
+&lt;p&gt;这里我们使用的是8.2.10版本，对应的API是v1，选择插件版本需要留意&lt;/p&gt;
+&lt;h2 id=&#34;环境依赖&#34;&gt;环境依赖&lt;/h2&gt;
+&lt;p&gt;首先需要安装必须的包&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;包名是Debian的（括号内是Red Hat/Fedora）。
+git-email，用于发送补丁
+libsdl2-dev（libsdl2-devel），用于基于SDL的图形用户界面
+libgtk-3-dev（gtk3-devel），用于一个简单的界面，代替VNC
+libvte-dev（VTE291-DEVEL），通过GTK接口访问QEMU显示器和串口/控制台设备
+libcapstone-dev（capstone-devel），用于拆解 CPU 指令
+上述列表远非完整。为了最大化代码覆盖，应尽可能启用 QEMU 功能。 运行配置时，你应该会看到很多“是”的行，只有少数几行是“否”。&lt;/p&gt;
+&lt;p&gt;对于Ubuntu（以及可能的其他基于Debian的发行版）， 大多数推荐的额外软件包以实现最大代码覆盖，可以安装如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install git-email
+sudo apt-get install libaio-dev libbluetooth-dev libcapstone-dev libbrlapi-dev libbz2-dev
+sudo apt-get install libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev
+sudo apt-get install libibverbs-dev libjpeg8-dev libncurses5-dev libnuma-dev
+sudo apt-get install librbd-dev librdmacm-dev
+sudo apt-get install libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev
+sudo apt-get install libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev
+sudo apt-get install valgrind xfslibs-dev 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后执行&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;make build &amp;amp;&amp;amp; cd build
+../configure --prefix=/usr/local/qemu --enable-slirp
+make
+sudo make install
+sudo ln -s /usr/local/qemu/bin/* /usr/local/bin/
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;问题解决&#34;&gt;问题解决&lt;/h2&gt;
+&lt;p&gt;遭遇问题：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Executing subproject keycodemapdb 
+
+keycodemapdb| Project name: keycodemapdb
+keycodemapdb| Project version: undefined
+keycodemapdb| Program tools/keymap-gen found: YES (/home/volcanobin/Downloads/qemu-stable-8.2/subprojects/keycodemapdb/tools/keymap-gen)
+keycodemapdb| Build targets in project: 275
+keycodemapdb| Subproject keycodemapdb finished.
+
+Program scripts/decodetree.py found: YES (/home/volcanobin/Downloads/qemu-stable-8.2/build/pyvenv/bin/python3 /home/volcanobin/Downloads/qemu-stable-8.2/scripts/decodetree.py)
+Program flex found: NO
+
+../target/hexagon/meson.build:180:8: ERROR: Program &amp;#39;flex&amp;#39; not found or not executable
+
+A full log can be found at /home/volcanobin/Downloads/qemu-stable-8.2/build/meson-logs/meson-log.txt
+
+ERROR: meson setup failed
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解决：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install -y flex bison
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;gem5-安装&#34;&gt;gem5 安装&lt;/h1&gt;
+&lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
+&lt;p&gt;环境依赖安装&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install build-essential git m4 scons zlib1g zlib1g-dev \
+    libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev \
+    python3-dev python-is-python3 libboost-all-dev pkg-config gcc-10 g++-10 \
+    python3-tk clang-format-18
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;从github上下载gem5&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/gem5/gem5.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在v23+版本开始，就放弃了se.py个fs.py，改为了使用配置文件的方法，如果希望使用旧版方法请下载22.1以前的版本。我这里使用v22.1.0.0&lt;/p&gt;
+&lt;h2 id=&#34;编译&#34;&gt;编译&lt;/h2&gt;
+&lt;p&gt;执行&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;scons build/{ISA}/gem5.{variant} -j {cpus}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;有效的ISA有：&lt;/p&gt;
+&lt;p&gt;ALL - 包含了gem5起的所有指令集和Ruby协议&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ARM&lt;/li&gt;
+&lt;li&gt;NULL&lt;/li&gt;
+&lt;li&gt;MIPS&lt;/li&gt;
+&lt;li&gt;POWER&lt;/li&gt;
+&lt;li&gt;RISCV&lt;/li&gt;
+&lt;li&gt;SPARC&lt;/li&gt;
+&lt;li&gt;X86&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有效的构建变体有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;debug 关闭了优化。这确保变量不会 优化后，功能不会意外地内联化，控制流程也会 不要以令人惊讶的方式行事。这让这个版本更容易作 类似GDB的工具，但没有优化，这个版本明显慢很多 比其他人更重要。使用像 gdb 和 valgrind 这样的工具时，应该选择它 而且不希望细节被掩盖，但除此之外，优化更好的版本是 推荐。&lt;/li&gt;
+&lt;li&gt;opt 开启了优化功能和调试功能，比如断言 以及留下的 DPRINTF。这在速度之间取得了良好的平衡 模拟和洞察，以防出现问题。就是这样 大多数情况下版本是最好的。&lt;/li&gt;
+&lt;li&gt;fast 已开启优化功能并编译调试功能 出去。这在性能上发挥了所有作用，但代价是 运行时错误检查以及启用调试输出的能力。就是这样 如果你非常确定一切正常，推荐使用这个版本 并且想从模拟器中获得最佳性能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;编译后的help：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Usage
+=====
+  gem5.opt [gem5 options] script.py [script options]
+
+gem5 is copyrighted software; use the --copyright option for details.
+
+Options
+=======
+--help, -h              show this help message and exit
+--build-info, -B        Show build information
+--copyright, -C         Show full copyright information
+--readme, -R            Show the readme
+--outdir=DIR, -d DIR    Set the output directory to DIR [Default: m5out]
+--redirect-stdout, -r   Redirect stdout (&amp;amp; stderr, without -e) to file
+--redirect-stderr, -e   Redirect stderr to file
+--silent-redirect       Suppress printing a message when redirecting stdout or
+                        stderr
+--stdout-file=FILE      Filename for -r redirection [Default: simout.txt]
+--stderr-file=FILE      Filename for -e redirection [Default: simerr.txt]
+--listener-mode={on,off,auto}
+                        Port (e.g., gdb) listener mode (auto: Enable if
+                        running interactively) [Default: auto]
+--allow-remote-connections
+                        Port listeners will accept connections from anywhere
+                        (0.0.0.0). Default is only localhost.
+--interactive, -i       Invoke the interactive interpreter after running the
+                        script
+--pdb                   Invoke the python debugger before running the script
+--path=PATH[:PATH], -p PATH[:PATH]
+                        Prepend PATH to the system path when invoking the
+                        script
+--quiet, -q             Reduce verbosity
+--verbose, -v           Increase verbosity
+-m mod                  run library module as a script (terminates option
+                        list)
+-c cmd                  program passed in as string (terminates option list)
+-P                      Don&amp;#39;t prepend the script directory to the system path.
+                        Mimics Python 3&amp;#39;s `-P` option.
+-s                      IGNORED, only for compatibility with python. don&amp;#39;tadd
+                        user site directory to sys.path; also PYTHONNOUSERSITE
+
+Statistics Options
+------------------
+--stats-file=FILE       Sets the output file for statistics [Default:
+                        stats.txt]
+--stats-help            Display documentation for available stat visitors
+
+Configuration Options
+---------------------
+--dump-config=FILE      Dump configuration output file [Default: config.ini]
+--json-config=FILE      Create JSON output of the configuration [Default:
+                        config.json]
+--dot-config=FILE       Create DOT &amp;amp; pdf outputs of the configuration
+                        [Default: config.dot]
+--dot-dvfs-config=FILE  Create DOT &amp;amp; pdf outputs of the DVFS configuration
+                        [Default: none]
+
+Debugging Options
+-----------------
+--debug-break=TICK[,TICK]
+                        Create breakpoint(s) at TICK(s) (kills process if no
+                        debugger attached)
+--debug-help            Print help on debug flags
+--debug-flags=FLAG[,FLAG]
+                        Sets the flags for debug output (-FLAG disables a
+                        flag)
+--debug-start=TICK      Start debug output at TICK
+--debug-end=TICK        End debug output at TICK
+--debug-file=FILE       Sets the output file for debug. Append &amp;#39;.gz&amp;#39; to the
+                        name for it to be compressed automatically [Default:
+                        cout]
+--debug-activate=EXPR[,EXPR]
+                        Activate EXPR sim objects
+--debug-ignore=EXPR     Ignore EXPR sim objects
+--remote-gdb-port=REMOTE_GDB_PORT
+                        Remote gdb base port (set to 0 to disable listening)
+
+Help Options
+------------
+--list-sim-objects      List all built-in SimObjects, their params and default
+                        values
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;gem5测试&#34;&gt;gem5测试&lt;/h2&gt;
+&lt;p&gt;可以使用下面命令行测试：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./build/ARM/gem5.opt configs/example/se.py -c tests/test-progs/hello/bin/arm/linux/hello
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个时候其实还会报警告提示你有pydot等没安装，生成不了一些相关文件，可以使用下面命令补上&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install -y graphviz
+pip3 install pydot
+&lt;/code&gt;&lt;/pre&gt;- /posts/qemu-gem5-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
+        </item>
     
     
     

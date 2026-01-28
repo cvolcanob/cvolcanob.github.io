@@ -7,8 +7,43 @@
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2026 cvolcanob&#39;s Blog.</copyright>
-    <lastBuildDate>Tue, 30 Dec 2025 07:41:57 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jan 2026 12:15:11 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emulation</title>
+      <link>/tags/emulation/</link>
+      <pubDate>Wed, 28 Jan 2026 12:15:11 +0800</pubDate>
+      <guid>/tags/emulation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openblas</title>
+      <link>/tags/openblas/</link>
+      <pubDate>Wed, 28 Jan 2026 12:15:11 +0800</pubDate>
+      <guid>/tags/openblas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rpc</title>
+      <link>/tags/rpc/</link>
+      <pubDate>Wed, 28 Jan 2026 12:15:11 +0800</pubDate>
+      <guid>/tags/rpc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gem5</title>
+      <link>/tags/gem5/</link>
+      <pubDate>Wed, 28 Jan 2026 00:59:54 +0800</pubDate>
+      <guid>/tags/gem5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Qemu</title>
+      <link>/tags/qemu/</link>
+      <pubDate>Wed, 28 Jan 2026 00:59:54 +0800</pubDate>
+      <guid>/tags/qemu/</guid>
+      <description></description>
+    </item>
     <item>
       <title>C&#43;&#43;</title>
       <link>/tags/c&#43;&#43;/</link>

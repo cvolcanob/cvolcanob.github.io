@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Emulation on cvolcanob&#39; blog</title>
-    <link>/tags/emulation/</link>
-    <description>Recent content in Emulation on cvolcanob&#39; blog</description>
+    <title>Openblas on cvolcanob&#39; blog</title>
+    <link>/tags/openblas/</link>
+    <description>Recent content in Openblas on cvolcanob&#39; blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2025-2026 cvolcanob&#39;s Blog.</copyright>
     <lastBuildDate>Wed, 28 Jan 2026 12:15:11 +0800</lastBuildDate>
-    <atom:link href="/tags/emulation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/openblas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Openblas Libtirpc Install</title>
       <link>/posts/openblas-libtirpc-install/</link>
       <pubDate>Wed, 28 Jan 2026 12:15:11 +0800</pubDate>
       <guid>/posts/openblas-libtirpc-install/</guid>
       <description>&lt;p&gt;在进行仿真的时候，我们经常需要提前准备好编译完的二进制文件用于仿真运行，因此会存在需要交叉编译的需求，如果准备编译的代码依赖外部库，比如OpenBlas等，就需要提前将这些库进行交叉编译。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Qemu和Gem5两项仿真工具的编译安装 </title>
-      <link>/posts/qemu-gem5-install/</link>
-      <pubDate>Wed, 28 Jan 2026 00:59:54 +0800</pubDate>
-      <guid>/posts/qemu-gem5-install/</guid>
-      <description>&lt;p&gt;本文中我们会介绍如何准备Qemu和Gem5的环境并进行安装。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
