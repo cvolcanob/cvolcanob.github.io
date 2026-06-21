@@ -6,7 +6,7 @@
     <description>Recent content on cvolcanob&#39; blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>Copyright © 2025-2026 cvolcanob&#39;s Blog.</copyright>
+    <copyright>Copyright © 2025-2026 cvolcanob&#39;s Blog. &lt;br&gt;&lt;a href=&#34;https://beian.miit.gov.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;闽ICP备2026021473号-1&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 28 Jan 2026 12:15:11 +0800</lastBuildDate>
     
         <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -37,7 +37,7 @@
 mkdir build &amp;amp;&amp;amp; cd build
 ../configure --host=aarch64-linux-gnu CC=aarch64-linux-gnu-gcc --disable-shared --enable-static --disable-gssapi
 make
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;就完成安装了~&lt;/p&gt;- /posts/openblas-libtirpc-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;就完成安装了~&lt;/p&gt;- /posts/openblas-libtirpc-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog. &lt;br&gt;&lt;a href=&#34;https://beian.miit.gov.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;闽ICP备2026021473号-1&lt;/a&gt;</description>
         </item>
     
     
@@ -214,7 +214,7 @@ Help Options
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个时候其实还会报警告提示你有pydot等没安装，生成不了一些相关文件，可以使用下面命令补上&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install -y graphviz
 pip3 install pydot
-&lt;/code&gt;&lt;/pre&gt;- /posts/qemu-gem5-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
+&lt;/code&gt;&lt;/pre&gt;- /posts/qemu-gem5-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog. &lt;br&gt;&lt;a href=&#34;https://beian.miit.gov.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;闽ICP备2026021473号-1&lt;/a&gt;</description>
         </item>
     
     
@@ -299,7 +299,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE &amp;#34;-Wall&amp;#34; &amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cmake .. 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./test
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/libtorch-compile-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/libtorch-compile-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog. &lt;br&gt;&lt;a href=&#34;https://beian.miit.gov.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;闽ICP备2026021473号-1&lt;/a&gt;</description>
         </item>
     
     
@@ -693,7 +693,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE &amp;#34;-Wall&amp;#34; &amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sys.exit(&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    test_ghidra_disassembly(binary_path, ghidra_path)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/pyghidra-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- /posts/pyghidra-install/ - Copyright © 2025-2026 cvolcanob&#39;s Blog. &lt;br&gt;&lt;a href=&#34;https://beian.miit.gov.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;闽ICP备2026021473号-1&lt;/a&gt;</description>
         </item>
     
     
